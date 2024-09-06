@@ -1,0 +1,21 @@
+version: '3'
+services:
+  db:
+    image: postgres:13
+    container_name: homebuildmanager_db
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: homebuildmanager
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - homebuild_network
+
+volumes:
+  postgres_data:
+
+networks:
+  homebuild_network:

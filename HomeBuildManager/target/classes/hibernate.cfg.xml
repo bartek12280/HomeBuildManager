@@ -1,0 +1,38 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!-- Połączenie z bazą danych -->
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/homebuildmanager</property>
+        <property name="hibernate.connection.username">admin</property>
+        <property name="hibernate.connection.password">admin</property>
+
+        <!-- Dialekt bazy danych -->
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+
+        <!-- Automatyczne zarządzanie schematem -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!-- Pokazywanie zapytań SQL w konsoli -->
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+
+        <!-- Klasy z mapowaniami -->
+        <mapping class="com.homebuildmanager.models.HouseProject.BrickHouse"/>
+        <mapping class="com.homebuildmanager.models.HouseProject.WoodenHouse"/>
+        <mapping class="com.homebuildmanager.models.HouseProject.SummerHouse"/>
+        <mapping class="com.homebuildmanager.models.HouseProject.YearRoundHouse"/>
+        <mapping class="com.homebuildmanager.models.HouseProject.HouseProject"/>
+        <mapping class="com.homebuildmanager.models.HouseProject.Room"/>
+        <mapping class="com.homebuildmanager.models.Order.HouseOrder"/>
+        <mapping class="com.homebuildmanager.models.User.Client"/>
+        <mapping class="com.homebuildmanager.models.User.Employee"/>
+        <mapping class="com.homebuildmanager.models.User.Manager"/>
+        <mapping class="com.homebuildmanager.models.User.Person"/>
+        <mapping class="com.homebuildmanager.models.User.Team"/>
+        <mapping class="com.homebuildmanager.models.User.Worker"/>
+
+    </session-factory>
+</hibernate-configuration>
